@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Electron</title>
+    <script src="https://kit.fontawesome.com/0c7b18c303.js" crossorigin="anonymous"></script>
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <!-- <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:"
+    /> -->
+
+    <link href="./assets/main.css" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" href="./src/style.css">
+  </head>
+
+  <body>
+      <center>
+      <div id="header" class="">
+          <h1>Welcome To Our To-Do List Platform</h1>
+          <h1>Today Start Your Work With Us...!</h1>
+          
+        </div>
+      
+      <form>
+          <input id="input">
+          <button>Add</button>
+      </form>
+
+      <div>
+          <ul id="list">
+              <li>Hello
+                  <button onclick="deleteItem(event)">Delete</i></button>
+              </li>
+          </ul>
+      </div>
+  </center>
+  <script>
+
+      const form = document.querySelector("form")
+      var kok = document.getElementById("list")
+      var coc = document.querySelector("input")
+
+      form.onsubmit = onSubmit;
+
+      function onSubmit(e) {
+          e.preventDefault();
+          add();
+          coc.value=''
+      }
+
+      function add()
+      {
+          var listitem = document.createElement("li")
+          listitem.innerHTML = coc.value + "<button onclick='deleteItem(event)'> Delete </button>"
+          kok.append(listitem)
+      }
+
+      function deleteItem(event)
+      {
+          event.target.parentElement.remove()
+      }
+  </script>
+  </body>
+</html>
